@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="../style.css">
-    <script src="java.js"></script>
+    <link rel="stylesheet" type="text/css" href="test.css">
+    <script src="test.js"></script>
 </head>
 
 <body>
@@ -52,25 +52,26 @@
                 </div>
                 <input id="companyNameInput" hidden>
                 <div><button onclick="handleParagraphEdit()">Edit</button>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore
-                        et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
                 <p>© 2025, Companys name, All rights reserved.</p>
             </div>
             <div class="container-wide-noborder">
                 <div class="columns">
-                    <a href="#home">Home</a>
-                    <a href="#home">About</a>
-                    <a href="#home">Blog</a>
+                    <a href="#home">Home</a><button onclick="editLink(this)">Edit</button>
+                    <a href="#home">About</a><button onclick="editLink(this)">Edit</button>
+                    <a href="#home">Blog</a><button onclick="editLink(this)">Edit</button>
                 </div>
                 <div class="columns">
-                    <a href="#home">Facebook</a>
-                    <a href="#home">LinkedIn</a>
-                    <a href="#home">Github</a>
+                    <a href="#home">Facebook</a><button onclick="editLink(this)">Edit</button>
+                    <a href="#home">LinkedIn</a><button onclick="editLink(this)">Edit</button>
+                    <a href="#home">Github</a><button onclick="editLink(this)">Edit</button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <script src="test.js"></script>
 </body>
 
 </html>
