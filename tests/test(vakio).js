@@ -1,3 +1,84 @@
+document.addEventListener("DOMContentLoaded", () => {
+    loadSavedLinks();
+    document.getElementById("addNewLinkButton").addEventListener("click", addNewLink);
+});
+
+function loadSavedLinks() {
+    const savedLinks = JSON.parse(localStorage.getItem("customLinks")) || [];
+
+    const container = document.querySelector(".columns");
+    container.querySelectorAll(".link-container").forEach(el => el.remove());
+
+    savedLinks.forEach(link => {
+        renderLink(link.text, link.href, link.id);
+    });
+}
+
+// === SAVE TO LOCAL STORAGE ===
+function saveLinkToStorage(text, href, id) {
+    const links = JSON.parse(localStorage.getItem("customLinks")) || [];
+    links.push({ text, href, id });
+    localStorage.setItem("customLinks", JSON.stringify(links));
+}
+
+function updateLinkInStorage(id, newText, newHref) {
+    let links = JSON.parse(localStorage.getItem("customLinks")) || [];
+    links = links.map(link => link.id === id ? { ...link, text: newText, href: newHref } : link);
+    localStorage.setItem("customLinks", JSON.stringify(links));
+}
+
+// === ADD NEW LINK ===
+function addNewLink() {
+    if (document.querySelector(".new-link-container")) return;
+
+    const container = document.createElement("div");
+    container.className = "new-link-container";
+
+    const input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "Enter URL or Text";
+
+    const saveBtn = document.createElement("button");
+    saveBtn.textContent = "Save";
+
+    const cancelBtn = document.createElement("button");
+    cancelBtn.textContent = "Cancel";
+
+    container.append(input, saveBtn, cancelBtn);
+    document.querySelector(".columns").appendChild(container);
+
+    saveBtn.addEventListener("click", () => {
+        const value = input.value.trim();
+        if (!value) return alert("Enter a valid link");
+
+        const id = "link-" + Date.now();
+        renderLink(value, value, id);
+        saveLinkToStorage(value, value, id);
+
+        container.remove();
+    });
+
+    cancelBtn.addEventListener("click", () => container.remove());
+}
+
+// === RENDER A LINK ===
+function renderLink(text, href, id) {
+    const container = document.createElement("div");
+    container.className = "link-container";
+
+    const a = document.createElement("a");
+    a.href = href;
+    a.textContent = text;
+    a.setAttribute("data-id", id);
+
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit";
+    editBtn.onclick = () => editLink(a, editBtn);
+
+    container.append(a, editBtn);
+    document.querySelector(".columns").appendChild(container);
+}
+
 // Function to handle editing of the link element
 function editLink(button) {
     // Get the <a> element that the button is next to
