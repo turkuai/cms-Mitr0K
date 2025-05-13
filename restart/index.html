@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="test.css">
-    <script src="bogdan.js"></script>
+    <link rel="stylesheet" type="text/css" href="../tests/test.css">
+    <script src="javat.js"></script>
 </head>
 
 <body>
@@ -23,12 +23,12 @@
         </div>
         <div class="container">
             <article>
-                <h2>Google Chrome</h2>
+                <h2>Google Chrome</h2><button onclick="handleHeadingEdit">Edit</button>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
                     et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
                     aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                     cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                    culpa qui officia deserunt mollit anim id est laborum.</p>
+                    culpa qui officia deserunt mollit anim id est laborum.</p><br><button onclick="handleParagraphEdit">Edit</button>
             </article>
             <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F023%2F839%2F797%2Foriginal%2Fkoi-carp-fish-isolated-on-a-transparent-background-free-png.png&f=1&nofb=1&ipt=7df1e45f5b65f57f8e1e27e0b701c010d75e7942061f3f732fcc2232eff7a29e&ipo=images"
                 alt="byebye">
@@ -47,32 +47,24 @@
         </div>
         <div class="container-wide">
             <div class="info-container">
-                <div><button onclick="handleHeadingEdit()">Edit</button>
-                    <h1 id="CompanyName">Your company's name</h1>
-                </div>
-                <input id="companyNameInput" hidden>
-                <div><button onclick="handleParagraphEdit()">Edit</button>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
+                <h1>Your company's name</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua.</p>
                 <p>© 2025, Companys name, All rights reserved.</p>
             </div>
             <div class="container-wide-noborder">
                 <div class="columns">
-                    <a href="#home">Home</a><button onclick="editLink(this)">Edit</button>
-                    <a href="#home">About</a><button onclick="editLink(this)">Edit</button>
-                    <a href="#home">Blog</a><button onclick="editLink(this)">Edit</button><br>
-                    <button id="addNewLinkButton" onclick="addNewLink()">Add New Link</button>
+                    <a href="#home">Home</a>
+                    <a href="#home">About</a>
+                    <a href="#home">Blog</a>
                 </div>
                 <div class="columns">
-                    <a href="#home">Facebook</a><button onclick="editLink(this)">Edit</button>
-                    <a href="#home">LinkedIn</a><button onclick="editLink(this)">Edit</button>
-                    <a href="#home">Github</a><button onclick="editLink(this)">Edit</button>
+                    <a href="#home">Facebook</a>
+                    <a href="#home">LinkedIn</a>
+                    <a href="#home">Github</a>
                 </div>
             </div>
         </div>
-    </div>
-
-    <script src="bogdan.js"></script>
 </body>
-
+<script src="javat.js"></script>
 </html>
