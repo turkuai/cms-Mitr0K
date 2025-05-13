@@ -17,7 +17,7 @@ function loadSavedLinks() {
 // === SAVE TO LOCAL STORAGE ===
 function saveLinkToStorage(text, href, id) {
     const links = JSON.parse(localStorage.getItem("customLinks")) || [];
-    links.push({ text, href, id });
+    links.push({ a, href, id });
     localStorage.setItem("customLinks", JSON.stringify(links));
 }
 
@@ -71,18 +71,34 @@ function renderLink(text, href, id) {
     a.textContent = text;
     a.setAttribute("data-id", id);
 
-    const editBtn = document.createElement("button");
-    editBtn.textContent = "Edit";
-    editBtn.onclick = () => editLink(a, editBtn);
+    const editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+    editButton.onclick = () => editLink(a, editButton);
 
-    container.append(a, editBtn);
+    let removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove';
+    removeButton.addEventListener('click', function (event) {
+        event.stopPropagation(); // Stop the click event from bubbling up to the link
+        removeLink(a, id, editButton, removeButton);
+    });
+
+
+    container.append(a, editButton, removeButton);
     document.querySelector(".columns").appendChild(container);
 }
 
+function removeLink(link, linkId, editButton, removeButton) {
+    // Remove the link and associated buttons from the page
+    link.remove();
+    editButton.remove();
+    removeButton.remove();
+
+    // Remove the link from localStorage
+    localStorage.removeItem(link);
+}
+
 // Function to handle editing of the link element
-function editLink(button) {
-    // Get the <a> element that the button is next to
-    let link = button.previousElementSibling;
+function editLink(link, editButton) {
 
     // Create an input field and pre-fill it with the link's text
     let inputField = document.createElement('input');
@@ -96,6 +112,13 @@ function editLink(button) {
     let saveButton = document.createElement('button');
     saveButton.textContent = 'Save';
     inputField.insertAdjacentElement('afterend', saveButton);
+
+    let removeButton = document.createElement('button');
+    removeButton.textContent = 'Remove';
+    removeButton.addEventListener('click', function (event) {
+        event.stopPropagation(); // Stop the click event from bubbling up to the link
+        removeLink(a, link, editButton, removeButton);
+    });
 
     // Handle saving the new link text to localStorage
     saveButton.addEventListener('click', function () {
@@ -112,6 +135,7 @@ function editLink(button) {
         updatedLink.href = link.href; // Keep the same href
         updatedLink.textContent = newLinkText;
         updatedLink.setAttribute('data-id', linkId); // Preserve the unique ID
+
 
         // Replace the input field with the updated <a> element
         inputField.replaceWith(updatedLink);
@@ -187,15 +211,15 @@ function handleParagraphEdit() {
 window.addEventListener('load', function () {
     let links = document.querySelectorAll('.container-wide-noborder a');
 
-    links.forEach(function (link, index) {
+    links.forEach(function (a, index) {
         // Use the index or generate a unique ID for each link
         let linkId = 'link-' + index;
-        link.setAttribute('data-id', linkId);
+        a.setAttribute('data-id', linkId);
 
         // Try to load the saved text from localStorage
         let savedText = localStorage.getItem(linkId);
         if (savedText) {
-            link.textContent = savedText;
+            a.textContent = savedText;
         }
     });
 
