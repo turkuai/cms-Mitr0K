@@ -8,16 +8,15 @@ $json = file_get_contents('php://input');
 // Converts it into a PHP object
 $data = json_decode($json);
 
-
-$stmt = $conn->prepare("INSERT INTO pelit (pelaaja_x, pelaaja_o) VALUES (?, ?)");
-$stmt->bind_param("ss", $data -> pelaaja1, $data -> pelaaja2);
+// Prepare and bind
+$stmt = $conn->prepare("INSERT INTO siirrot (game_id, move_index, row, col) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("iiii", $data->game_id, $data->move_index, $data->row, $data->col);
 $stmt->execute();
 
-
-$pelitid = $stmt->insert_id;
+$moveid = $stmt->insert_id;
 
 $stmt->close();
 $conn->close();
 //valmis//
 ?>
-{ "pelitid": <?php echo $pelitid; ?> }
+{ "moveid": <?php echo $moveid; ?> }

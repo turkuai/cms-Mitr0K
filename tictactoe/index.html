@@ -9,22 +9,22 @@
 <script src="ttt.js"></script>
 <body>
     <section>
-        <div class="pelilauta" onclick="logit(event)">
-            <div row="1" col="1" id="box-1-1"></div>
-            <div row="1" col="2" id="box-1-2"></div>
-            <div row="1" col="3" id="box-1-3"></div>
-            <div row="2" col="1" id="box-2-1"></div>
-            <div row="2" col="2" id="box-2-2"></div>
-            <div row="2" col="3" id="box-2-3"></div>
-            <div row="3" col="1" id="box-3-1"></div>
-            <div row="3" col="2" id="box-3-2"></div>
-            <div row="3" col="3" id="box-3-3"></div>
+        <div class="pelilauta" onclick="playerplace(event)">
+            <div row="1" col="1" id="1"></div>
+            <div row="1" col="2" id="2"></div>
+            <div row="1" col="3" id="3"></div>
+            <div row="2" col="1" id="4"></div>
+            <div row="2" col="2" id="5"></div>
+            <div row="2" col="3" id="6"></div>
+            <div row="3" col="1" id="7"></div>
+            <div row="3" col="2" id="8"></div>
+            <div row="3" col="3" id="9"></div>
         </div>
     </section>
     <div class="playermenu">
-        <div><input type="text" id="player1" name="player1"><br></div>
-        <div><button onclick="TimeToPlay(event)">Play</button></div>
-        <div><input type="text" id="player2" name="player2"><br></div>
+        <div><input name="Pelaaja1" id="p1" placeholder="Pelaaja 1 Nimi" required></input></div>
+        <div><button onclick="start(event)">Play</button></div>
+        <div><input name="Pelaaja2" id="p2" placeholder="Pelaaja 2 Nimi" required></input></div>
     </div>
 </body>
 </html>
