@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-tac-toe!</title>
+    <link rel="stylesheet" type="text/css" href="ttt.css">
+</head>
+<script src="ttt.js"></script>
+<body>
+    <section>
+        <div class="pelilauta" onclick="playerplace(event)">
+            <div row="1" col="1" id="1"></div>
+            <div row="1" col="2" id="2"></div>
+            <div row="1" col="3" id="3"></div>
+            <div row="2" col="1" id="4"></div>
+            <div row="2" col="2" id="5"></div>
+            <div row="2" col="3" id="6"></div>
+            <div row="3" col="1" id="7"></div>
+            <div row="3" col="2" id="8"></div>
+            <div row="3" col="3" id="9"></div>
+        </div>
+    </section>
+    <div class="playermenu">
+        <div><input name="Pelaaja1" id="p1" placeholder="Pelaaja 1 Nimi" required></input></div>
+        <div><button onclick="start(event)">Play</button></div>
+        <div><input name="Pelaaja2" id="p2" placeholder="Pelaaja 2 Nimi" required></input></div>
+    </div>
+</body>
+</html>
