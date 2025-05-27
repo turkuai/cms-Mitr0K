@@ -1,0 +1,63 @@
+.winning-cell {
+    background-color: rgb(255, 0, 0);
+    font-weight: bold;
+}
+.ruudukko {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: rgb(125, 44, 255);
+    gap: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.ruudukko > div {
+    padding: 1rem;
+    
+    border: 15px solid black;
+    text-align: center;
+    font-size: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+
+}
+
+.manu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: rgb(78, 31, 248);
+    gap: 1rem;
+    padding: 1rem;
+    margin: 1rem;
+}
+
+.manu > div {
+    padding: 1rem;
+    background-color: rgb(152, 126, 224);
+    border: 15px solid black;
+    text-align: center;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10rem;
+
+}
+.grid-item{
+    background-color: rgb(162, 122, 255);
+}
+.grid-item:hover{
+    background-color: cornflowerblue;
+}
+
+.playername {
+    height: 8rem;
+    width: 15rem;
+    font-size: 50px;
+}
+
+.playername:hover {
+    background-color: rgb(174, 196, 238);
+}
