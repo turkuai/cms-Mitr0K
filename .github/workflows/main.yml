@@ -12,6 +12,6 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: 194.197.245.5
-        username: vp25_9833
+        username: 23n_2248
         password: ${{ secrets.ftp_PASSWORD }}
         server-dir: cms/
