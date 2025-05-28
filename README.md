@@ -7,3 +7,5 @@ https://turkuai.github.io/cms-Mitr0K/
 https://turkuai.github.io/cms-Mitr0K/admin
 
 https://epicsivusto.netlify.app/
+
+https://taikukkula.fi/tiev23n/mitro/cms-Mitr0K
